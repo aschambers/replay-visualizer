@@ -1,0 +1,77 @@
+<div>
+  <app-search></app-search>
+  <input type='file' webkitdirectory='' directory='' (change)="fileChanged($event)" multiple>
+  <ul>
+    <li *ngFor="let replay of replays; let index = index">
+      Player1: {{ replay.player1 }} <br />
+      Player2: {{ replay.player2 }} <br />
+      Winner: {{ replay.winner }} <br />
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player1pokemon1 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player1pokemon2 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player1pokemon3 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player1pokemon4 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player1pokemon5 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player1pokemon6 }}.png"
+      >
+      <div>------------------------------------------------</div>
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player2pokemon1 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player2pokemon2 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player2pokemon3 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player2pokemon4 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player2pokemon5 }}.png"
+      >
+      <img
+        height="40px"
+        width="40px"
+        src="../../assets/sprites/{{ replay.player2pokemon6 }}.png"
+      >
+    </li>
+  </ul>
+  <!-- <img
+    src="../../assets/sprites/abomasnow-mega.png"
+  > -->
+
+  <!-- <button (click)="readFiles($event)">Load Files</button> -->
+</div>
