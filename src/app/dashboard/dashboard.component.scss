@@ -1,0 +1,27 @@
+.fileselect, .replaytext {
+  color: white;
+}
+
+.replaylist {
+  list-style-type: none;
+}
+
+.winnerselected {
+  background-color: green;
+  border: 1px solid white;
+}
+
+.winnerunselected {
+  background-color: rgb(0, 197, 0);
+  border: 1px solid white;
+}
+
+.loserselected {
+  background-color: rgb(255, 32, 69);
+  border: 1px solid white;
+}
+
+.loserunselected {
+  background-color: pink;
+  border: 1px solid white;
+}

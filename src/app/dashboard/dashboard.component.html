@@ -1,70 +1,106 @@
 <div>
   <app-search></app-search>
-  <input type='file' webkitdirectory='' directory='' (change)="fileChanged($event)" multiple>
+  <input class="fileselect" type='file' webkitdirectory='' directory='' (change)="fileChanged($event)" multiple>
   <ul>
-    <li *ngFor="let replay of replays; let index = index">
-      Player1: {{ replay.player1 }} <br />
-      Player2: {{ replay.player2 }} <br />
-      Winner: {{ replay.winner }} <br />
+    <li *ngFor="let replay of replays; let index = index" class="replaylist">
+      <span class="replaytext">Player1: {{ replay.player1 }} {{ replay.player1rating }}</span> <br />
+      <span class="replaytext">Player2: {{ replay.player2 }} {{replay.player2rating }}</span> <br />
+      <span class="replaytext">winner: {{ replay.winner }}</span> <br /><br />
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        replay.player1pokemon1, replay.player1lead1, replay.player1lead2,
+        '', replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player1pokemon1 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        replay.player1pokemon2, replay.player1lead1, replay.player1lead2,
+        '', replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player1pokemon2 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        replay.player1pokemon3, replay.player1lead1, replay.player1lead2,
+        '',replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player1pokemon3 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        replay.player1pokemon4, replay.player1lead1, replay.player1lead2,
+        '', replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player1pokemon4 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        replay.player1pokemon5, replay.player1lead1, replay.player1lead2,
+        '', replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player1pokemon5 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        replay.player1pokemon6, replay.player1lead1, replay.player1lead2,
+        '', replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player1pokemon6 }}.png"
       >
-      <div>------------------------------------------------</div>
+      <br />
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        '', replay.player1lead1, replay.player1lead2,
+        replay.player2pokemon1, replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player2pokemon1 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        '', replay.player1lead1, replay.player1lead2,
+        replay.player2pokemon2, replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player2pokemon2 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        '', replay.player1lead1, replay.player1lead2,
+        replay.player2pokemon3, replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player2pokemon3 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        '', replay.player1lead1, replay.player1lead2,
+        replay.player2pokemon4, replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player2pokemon4 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        '', replay.player1lead1, replay.player1lead2,
+        replay.player2pokemon5, replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player2pokemon5 }}.png"
       >
       <img
         height="40px"
         width="40px"
+        [ngClass]="getPokemonBackground(replay,
+        '', replay.player1lead1, replay.player1lead2,
+        replay.player2pokemon6, replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player2pokemon6 }}.png"
       >
     </li>
