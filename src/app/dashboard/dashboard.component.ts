@@ -1,15 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Match } from './match.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   match: Match | undefined;
-  files: Array<[]> = [];
+  files: Array<string> = [];
   replays: Array<Match> = [];
+  username: string = '';
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.http.get<any>('http://localhost:3000').subscribe(userInfo => {
+      if (userInfo && userInfo.username) {
+        this.username = userInfo.username;
+      }
+    });
+  }
 
   findStringIndex = (str1: any, str2: any) =>{
     const output = [];
@@ -51,7 +63,7 @@ export class DashboardComponent {
     return string.split(substring, index).join(substring).length;
   }
 
-  parseBattleData(battleData: any, index: number) {
+  parseBattleData(battleData: any, index: number, fullUrl: string) {
     console.log(battleData);
     
     const startPlayer1 = battleData.indexOf('|player|p1|');
@@ -181,11 +193,13 @@ export class DashboardComponent {
       player1lead2: player1lead2,
       player2lead1: player2lead1,
       player2lead2: player2lead2,
-      winner: winner
+      winner: winner,
+      replayLink: fullUrl
     }
       
     this.replays.push(matchInfo);
     console.log(this.replays);
+    console.log(fullUrl);
   }
 
   fileChanged(event: any) {
@@ -195,12 +209,28 @@ export class DashboardComponent {
       reader.readAsText(files[i], "UTF-8");
       reader.onload = (evt: any) => {
         const battleData = evt.target.result;
-        this.parseBattleData(battleData, i);
+        if (i === 0) {
+          this.files.push(battleData);
+          let daily = Math.floor(Date.now()/1000/60/60/24);
+          // const showdownViewer = document.getElementById('showdown-viewer');
+          // if (showdownViewer) {
+          //   showdownViewer.appendChild('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version'+daily+'"></'+'script>');
+          // }
+          
+          // document.write(battleData);
+        }
+        // https://play.pokemonshowdown.com/js/replay-embed.js?version19676
+        const battleDate = '';
+        const baseUrl = `C://Users//${this.username}//`;
+        const relativePath = files[i].webkitRelativePath;
+        const fullUrl = baseUrl + relativePath;
+        this.parseBattleData(battleData, i, fullUrl);
       }
       reader.onerror = function () {
         console.log('error reading file');
       }
     }
+    console.log(this.files);
   }
 
   getPokemonBackground = (replay: Match, player1pokemon1: string, player1lead1: string, player1lead2: string,
@@ -238,4 +268,8 @@ export class DashboardComponent {
     }
   }
 
+  viewReplay = (replayLink: string) => {
+    console.log(replayLink);
+    window.open(replayLink);
+  }
 }

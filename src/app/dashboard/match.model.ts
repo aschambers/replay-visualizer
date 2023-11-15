@@ -20,12 +20,12 @@ export class Match {
   public player2lead1: string;
   public player2lead2: string;
   public winner: string;
-
+  public replayLink: string;
 
   constructor(player1: string, player1rating: string, player1pokemon1: string, player1pokemon2: string, player1pokemon3: string, player1pokemon4: string,
   player1pokemon5: string, player1pokemon6: string, player2: string, player2rating: string, player2pokemon1: string, player2pokemon2: string,
   player2pokemon3: string, player2pokemon4: string, player2pokemon5: string, player2pokemon6: string, player1lead1: string,
-  player1lead2: string, player2lead1: string, player2lead2: string, winner: string) {
+  player1lead2: string, player2lead1: string, player2lead2: string, winner: string, replayLink: string) {
     this.player1 = player1;
     this.player1rating = player1rating;
     this.player1pokemon1 = player1pokemon1;
@@ -47,5 +47,6 @@ export class Match {
     this.player2lead1 = player2lead1;
     this.player2lead2 = player2lead2;
     this.winner = winner;
+    this.replayLink = replayLink;
   }
 }

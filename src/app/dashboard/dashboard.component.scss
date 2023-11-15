@@ -3,7 +3,16 @@
 }
 
 .replaylist {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.replay {
   list-style-type: none;
+  background-color: green;
 }
 
 .winnerselected {

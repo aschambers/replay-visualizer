@@ -1,11 +1,13 @@
 <div>
+  <div id="showdown-viewer"></div>
+  <input class="fileselect" type='file' webkitdirectory='' directory='' (change)="fileChanged($event)" multiple><br /><br />
   <app-search></app-search>
-  <input class="fileselect" type='file' webkitdirectory='' directory='' (change)="fileChanged($event)" multiple>
-  <ul>
-    <li *ngFor="let replay of replays; let index = index" class="replaylist">
+  <ul class="replaylist">
+    <li *ngFor="let replay of replays; let index = index" class="replay">
       <span class="replaytext">Player1: {{ replay.player1 }} {{ replay.player1rating }}</span> <br />
       <span class="replaytext">Player2: {{ replay.player2 }} {{replay.player2rating }}</span> <br />
       <span class="replaytext">winner: {{ replay.winner }}</span> <br /><br />
+      <a (click)="viewReplay(replay.replayLink)">View Replay</a><br />
       <img
         height="40px"
         width="40px"
