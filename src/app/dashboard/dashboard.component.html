@@ -1,16 +1,32 @@
 <div>
   <div id="showdown-viewer"></div>
   <input class="fileselect" type='file' webkitdirectory='' directory='' (change)="fileChanged($event)" multiple><br /><br />
-  <app-search></app-search>
-  <pre id="fileContent"></pre>
-
+  <div *ngIf="replays.length > 0">
+    <select class="searchType" (change)="selectSearchType($event)">
+      <option value="ledWith">Search Battles Led With</option>
+      <option value="foughtWith">Search Battles Fought With</option>
+    </select>
+    <div *ngIf="this.searchType === 'ledWith'">
+      <!-- <span class="title">Battles Led With:</span><br /> -->
+      <app-search class="filterSearch" (filterReplays)="filterPokemonLed($event)"></app-search><br />
+      <!-- <select class="filterSelect">
+        <option>All Pokemon</option>
+        <option *ngFor="let ledPokemon of ledPokemonList">{{ ledPokemon }}</option>
+      </select> -->
+      </div>
+    <div *ngIf="this.searchType === 'foughtWith'">
+      <!-- <span class="title">Battles Fought With:</span><br /> -->
+      <app-search class="filterSearch" (filterReplays)="filterPokemonBrought($event)"></app-search><br />
+      <!-- <select class="filterSelect">
+        <option>All Pokemon</option>
+        <option *ngFor="let pokemonBrought of uniquePokemon">{{ pokemonBrought }}</option>
+      </select> -->
+    </div>
+  </div>
+  <br />
   <ul class="replaylist">
-    <li *ngFor="let replay of replays; let index = index" class="replay">
-      <span class="replaytext">Player1: {{ replay.player1 }} {{ replay.player1rating }}</span> <br />
-      <span class="replaytext">Player2: {{ replay.player2 }} {{replay.player2rating }}</span> <br />
-      <span class="replaytext">winner: {{ replay.winner }}</span> <br /><br />
-      <!-- <div id="scroll" [innerHTML]="displayHtml"></div> -->
-      <!-- <a href="file:///C://Users//allis//showdown/Gen9VGC2023RegulationE-2023-11-13-yournottony-replaydownloadtest.html">C://Users//allis//showdown/Gen9VGC2023RegulationE-2023-11-13-yournottony-replaydownloadtest.html</a><br /> -->
+    <li *ngFor="let replay of filteredReplays; let index = index" class="replay">
+      <span class="replaytext">Player 1: {{ replay.player1 }} <br /> Rating: {{ replay.player1rating }}</span> <br />
       <img
         height="40px"
         width="40px"
@@ -107,12 +123,8 @@
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon6, replay.player2lead1, replay.player2lead2)"
         src="../../assets/sprites/{{ replay.player2pokemon6 }}.png"
-      >
+      ><br />
+      <span class="replaytext">Player 2: {{ replay.player2 }} <br /> Rating: {{replay.player2rating }}</span> <br /><br />
     </li>
   </ul>
-  <!-- <img
-    src="../../assets/sprites/abomasnow-mega.png"
-  > -->
-
-  <!-- <button (click)="readFiles($event)">Load Files</button> -->
 </div>

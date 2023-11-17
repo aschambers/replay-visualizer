@@ -2,6 +2,19 @@
   color: white;
 }
 
+.filterSelect, .searchType {
+  outline: none;
+  cursor: pointer;
+  min-width: 12rem;
+}
+
+.title {
+  color: white;
+  height: 1rem;
+  margin-right: 0.2rem;
+  // background-color: green;
+}
+
 .replaylist {
   // background-color: lightblue;
   display: flex;
