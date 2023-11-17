@@ -24,6 +24,12 @@ export class DashboardComponent {
   uniquePokemon: Array<string> = [];
   filteredUniquePokemon: Array<string> = [];
   searchType: string = 'ledWith';
+  viewStats: boolean = false;
+  sortedPokemon: Array<Array<string | number>> = [];
+
+  viewPokemonStats = () => {
+    this.viewStats = !this.viewStats;
+  }
 
   findStringIndex = (str1: any, str2: any) => {
     const output = [];
@@ -210,10 +216,10 @@ export class DashboardComponent {
       replayLink: fullUrl
     }
 
-    const sortedPokemon = this.sortPokemon(allPokemonUsedInMatch);
-
+    this.sortedPokemon = this.sortPokemon(allPokemonUsedInMatch);
     this.replays.push(matchInfo);
     this.filteredReplays.push(matchInfo);
+    console.log(this.sortedPokemon);
   }
 
   sortPokemon = (allPokemonUsedInMatch: Array<string>) => {
@@ -242,17 +248,19 @@ export class DashboardComponent {
   fileChanged(event: any) {
     const files = event.target.files;
     for (let i = 0; i < files.length; i++) {
-      const reader = new FileReader();
-      reader.readAsText(files[i], "UTF-8");
-      reader.onload = (evt: any) => {
-        const battleData = evt.target.result;
-        const baseUrl = `C://Users//allis//`;
-        const relativePath = files[i].webkitRelativePath;
-        const fullUrl = baseUrl + relativePath;
-        this.parseBattleData(battleData, i, fullUrl);
-      }
-      reader.onerror = function () {
-        console.log('error reading file');
+      if (files[i].type === 'text/html') {
+        const reader = new FileReader();
+        reader.readAsText(files[i], "UTF-8");
+        reader.onload = (evt: any) => {
+          const battleData = evt.target.result;
+          const baseUrl = `C://Users//allis//`;
+          const relativePath = files[i].webkitRelativePath;
+          const fullUrl = baseUrl + relativePath;
+          this.parseBattleData(battleData, i, fullUrl);
+        }
+        reader.onerror = function () {
+          console.log('error reading file');
+        }
       }
     }
   }
