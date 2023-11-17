@@ -12,15 +12,16 @@ export class DashboardComponent implements OnInit {
   files: Array<string> = [];
   replays: Array<Match> = [];
   username: string = '';
+  displayHtml: string = '';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<any>('http://localhost:3000').subscribe(userInfo => {
-      if (userInfo && userInfo.username) {
-        this.username = userInfo.username;
-      }
-    });
+    // this.http.get<any>('http://localhost:3000').subscribe(userInfo => {
+    //   if (userInfo && userInfo.username) {
+    //     this.username = userInfo.username;
+    //   }
+    // });
   }
 
   findStringIndex = (str1: any, str2: any) =>{
@@ -210,18 +211,70 @@ export class DashboardComponent implements OnInit {
       reader.onload = (evt: any) => {
         const battleData = evt.target.result;
         if (i === 0) {
-          this.files.push(battleData);
-          let daily = Math.floor(Date.now()/1000/60/60/24);
+          // console.log(battleData);
+          this.displayHtml = battleData;
+          const fileContent = document.getElementById('fileContent');
+          // console.log('allison');
+          if (fileContent) {
+            // console.log('allison');
+            // console.log(fileContent);
+            let script = document.createElement("script");
+            let daily = Math.floor(Date.now()/1000/60/60/24);
+            script.src = `https://play.pokemonshowdown.com/js/replay-embed.js?version${daily}`
+            document.head.appendChild(script);
+            const initialBattleData = battleData ? (battleData.split('<script type="text/plain" class="battle-log-data">') || []) : [];
+            const secondBattleData = battleData.length > 0 ? (initialBattleData[1].split('</script>') || []) : [];
+            
+            // let battleLogScript = document.createElement("script");
+            // battleLogScript.src = secondBattleData[0];
+            // battleLogScript.className = "battle-log-data";
+            // battleLogScript.type = "text/plain";
+            // console.log(battleLogScript);
+            // document.head.appendChild(battleLogScript);
+            
+            // console.log(secondBattleData[0]);
+            // fileContent.innerHTML = secondBattleData[0];
+            // console.log(fileContent);
+            // for (let i = 0; i < battleDataLines.length; i++) {
+            //   console.log(battleDataLines[i]);
+            // }
+            // fileContent.innerHTML = battleData;
+            // console.log(fileContent);
+
+
+          }
+
+          // this.files.push(battleData);
+          // let daily = Math.floor(Date.now()/1000/60/60/24);
           // const showdownViewer = document.getElementById('showdown-viewer');
           // if (showdownViewer) {
           //   showdownViewer.appendChild('<script src="https://play.pokemonshowdown.com/js/replay-embed.js?version'+daily+'"></'+'script>');
           // }
           
           // document.write(battleData);
+
+          
+          // let fileList: FileList = event.target.files;
+          // console.log(fileList);
+          // let file: File = fileList[i];
+          // let formData: FormData = new FormData();
+          // formData.append('uploadFile', file);
+          
+          // this.http.post<any>('http://localhost:3000/upload', formData).subscribe(res => {
+          //   console.log(res);
+          // });
+          // this.http.get('/download', { responseType: 'blob' }).subscribe({
+          //   next: (blob) => {
+          //     saveAs(blob, 'dump.gz');
+          //   },
+          //   error: (e) => console.error(e),
+          //   complete: () => {}
+          // })
+          // this.http.get<any>('http://localhost:3000/file', )
         }
         // https://play.pokemonshowdown.com/js/replay-embed.js?version19676
-        const battleDate = '';
-        const baseUrl = `C://Users//${this.username}//`;
+        // const battleDate = '';
+        const baseUrl = `C://Users//allis//`;
         const relativePath = files[i].webkitRelativePath;
         const fullUrl = baseUrl + relativePath;
         this.parseBattleData(battleData, i, fullUrl);

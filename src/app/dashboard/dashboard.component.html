@@ -2,12 +2,15 @@
   <div id="showdown-viewer"></div>
   <input class="fileselect" type='file' webkitdirectory='' directory='' (change)="fileChanged($event)" multiple><br /><br />
   <app-search></app-search>
+  <pre id="fileContent"></pre>
+
   <ul class="replaylist">
     <li *ngFor="let replay of replays; let index = index" class="replay">
       <span class="replaytext">Player1: {{ replay.player1 }} {{ replay.player1rating }}</span> <br />
       <span class="replaytext">Player2: {{ replay.player2 }} {{replay.player2rating }}</span> <br />
       <span class="replaytext">winner: {{ replay.winner }}</span> <br /><br />
-      <a (click)="viewReplay(replay.replayLink)">View Replay</a><br />
+      <!-- <div id="scroll" [innerHTML]="displayHtml"></div> -->
+      <!-- <a href="file:///C://Users//allis//showdown/Gen9VGC2023RegulationE-2023-11-13-yournottony-replaydownloadtest.html">C://Users//allis//showdown/Gen9VGC2023RegulationE-2023-11-13-yournottony-replaydownloadtest.html</a><br /> -->
       <img
         height="40px"
         width="40px"
