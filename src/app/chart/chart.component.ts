@@ -1,13 +1,12 @@
 import { Component, Input } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { Pokemon } from '../dashboard/pokemon.model';
 
 @Component({
-  selector: 'app-piechart',
-  templateUrl: './piechart.component.html',
-  styleUrls: ['./piechart.component.scss']
+  selector: 'app-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: ['./chart.component.scss']
 })
-export class PiechartComponent {
+export class ChartComponent {
   chart: any;
   @Input() sortedPokemon: Array<Array<string | number>> = [];
 

@@ -25,7 +25,7 @@
     <br />
     <a class="viewStats" (click)="viewPokemonStats()">Replay Stats <span *ngIf="viewStats === false" class="darrow">&#8964;</span><span *ngIf="viewStats === true" class="uarrow">&#8963;</span></a>
     <div *ngIf="viewStats === true">
-      <app-piechart [sortedPokemon]="sortedPokemon"></app-piechart>
+      <app-chart [sortedPokemon]="sortedPokemon"></app-chart>
     </div>
   </div>
   <br />

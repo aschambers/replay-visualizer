@@ -31,7 +31,7 @@ export class DashboardComponent {
     this.viewStats = !this.viewStats;
   }
 
-  findStringIndex = (str1: any, str2: any) => {
+  findStringIndex = (str1: string, str2: string) => {
     const output = [];
     for (let i = 0; i < str1.length -1; i++) {
       let arr = [];
@@ -71,7 +71,7 @@ export class DashboardComponent {
     return string.split(substring, index).join(substring).length;
   }
 
-  parseBattleData(battleData: any, index: number, fullUrl: string) {
+  parseBattleData(battleData: string, index: number, fullUrl: string) {
     const allPokemonUsedInMatch = [];
     const startPlayer1 = battleData.indexOf('|player|p1|');
     const endPlayer1 = battleData.indexOf('|p1') + 4;
@@ -238,6 +238,8 @@ export class DashboardComponent {
         }
     }
 
+    console.log(this.pokemonListMap);
+
     sortable.sort(function(a, b) {
         return b[1] - a[1];
     });
@@ -245,20 +247,20 @@ export class DashboardComponent {
     return sortable;
   }
 
-  fileChanged(event: any) {
-    const files = event.target.files;
+  fileChanged(event: Event) {
+    const files = (event.target as any).files;
     for (let i = 0; i < files.length; i++) {
       if (files[i].type === 'text/html') {
         const reader = new FileReader();
         reader.readAsText(files[i], "UTF-8");
-        reader.onload = (evt: any) => {
-          const battleData = evt.target.result;
+        reader.onload = (event: Event) => {
+          const battleData = (event.target as any).result;
           const baseUrl = `C://Users//allis//`;
           const relativePath = files[i].webkitRelativePath;
           const fullUrl = baseUrl + relativePath;
           this.parseBattleData(battleData, i, fullUrl);
         }
-        reader.onerror = function () {
+        reader.onerror = () => {
           console.log('error reading file');
         }
       }
@@ -336,7 +338,7 @@ export class DashboardComponent {
     }
   }
 
-  selectSearchType = (event: any) => {
+  selectSearchType = (event: Event) => {
     this.searchType = (event.target as any).value;
     this.filteredReplays.length = 0;
     for (let i = 0; i < this.replays.length; i++) {

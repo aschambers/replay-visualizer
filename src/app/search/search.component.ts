@@ -6,15 +6,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  @Output() filterReplays = new EventEmitter<any>();
-
+  @Output() filterReplays = new EventEmitter<string>();
   searchValue: string = '';
-  
 
   filterResults(event: Event): void {
     this.searchValue = (event.target as any).value;
     this.filterReplays.emit(this.searchValue);
-    // this.searchValue = (event.target as any).value;
-    // this.filterReplays(event);
   }
 }
