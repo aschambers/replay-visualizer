@@ -14,7 +14,10 @@ export class ChartComponent {
     this.createChart();
   }
 
-  createChart(){
+  /**
+   * creates a chart based on data that is passed in
+   */
+  createChart = () => {
     const labels = [];
     const data = [];
     for (let i = 0; i < this.sortedPokemon.length; i++) {

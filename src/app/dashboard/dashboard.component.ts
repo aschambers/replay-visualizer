@@ -24,11 +24,6 @@ export class DashboardComponent {
 
   constructor(private replayService: ReplayService) {}
 
-  getSprite = (pokemon: string) => {
-    const { url } = Sprites.getPokemon(pokemon, { gen: 'gen5' });
-    return url;
-  }
-
   /**
    * triggers the parseBattleData function when files are uploaded
    * @param event Event
@@ -282,5 +277,15 @@ export class DashboardComponent {
   getPokemonBackground = (replay: Match, player1pokemon1: string, player1lead1: string, player1lead2: string,
   player2pokemon1: string, player2lead1: string, player2lead2: string) => {
     return this.replayService.getPokemonBackground(replay, player1pokemon1, player1lead1, player1lead2, player2pokemon1, player2lead1, player2lead2)
+  }
+
+  /**
+   * retrieves a sprite for a given pokemon
+   * @param pokemon string
+   * @returns string
+   */
+  getSprite = (pokemon: string) => {
+    const { url } = Sprites.getPokemon(pokemon, { gen: 'gen5' });
+    return url;
   }
 }
