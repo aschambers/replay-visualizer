@@ -60,7 +60,7 @@ export class DashboardComponent {
     const startPlayer1 = battleData.indexOf('|player|p1|');
     const endPlayer1 = battleData.indexOf('|p1') + 4;
     const endPlayer1Name = endPlayer1 + battleData.substring(endPlayer1).indexOf('|') + 1;
-    const player1 = battleData.slice(startPlayer1 + 10, endPlayer1Name).replaceAll('|', ' ').replaceAll(' ', '');
+    const player1 = battleData.slice(startPlayer1 + 10, endPlayer1Name).replaceAll('|', ' ').trim();
     if (!this.playerList.includes(player1)) {
       this.playerList.push(player1);
     }
@@ -69,7 +69,7 @@ export class DashboardComponent {
     const startPlayer2 = battleData.indexOf('|player|p2|');
     const endPlayer2 = battleData.indexOf('|p2') + 4;
     const endPlayer2Name = endPlayer2 + battleData.substring(endPlayer2).indexOf('|') + 1;
-    const player2 = battleData.slice(startPlayer2 + 10, endPlayer2Name).replaceAll('|', ' ').replaceAll(' ', '');
+    const player2 = battleData.slice(startPlayer2 + 10, endPlayer2Name).replaceAll('|', ' ').trim();
     if (!this.playerList.includes(player2)) {
       this.playerList.push(player2);
     }
@@ -173,9 +173,9 @@ export class DashboardComponent {
     const winnerStart = battleData.indexOf('|win|') + 5;
     const winnerEnd = battleData.indexOf('|raw|');
     const winnerEndTwo = battleData.indexOf('|inactive|', winnerStart);
-    let winner = battleData.slice(winnerStart, winnerEnd).replace('\n', '');
+    let winner = battleData.slice(winnerStart, winnerEnd).trim();
     if (winner.indexOf('inactive') > -1) {
-      winner = battleData.slice(winnerStart, winnerEndTwo).replace('\n', '');
+      winner = battleData.slice(winnerStart, winnerEndTwo).trim();
     }
 
     const matchInfo = {
