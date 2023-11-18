@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
-import { StatsComponent } from './stats/stats.component';
 import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
@@ -14,7 +13,6 @@ import { ChartComponent } from './chart/chart.component';
     AppComponent,
     DashboardComponent,
     SearchComponent,
-    StatsComponent,
     ChartComponent
   ],
   imports: [
