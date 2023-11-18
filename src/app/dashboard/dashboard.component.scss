@@ -1,5 +1,9 @@
 .fileselect, .replaytext {
   color: white;
+}
+
+.replaytext {
+  color: white;
   font-size: 1.3em;
 }
 
@@ -11,22 +15,26 @@
 
 .darrow {
   position: absolute;
-  margin-top: -0.3rem;
+  margin-top: -0.6rem;
   margin-left: 0.2rem;
-  font-size: 1rem;
+  font-size: 1.2em;
 }
 
 .uarrow {
   position: absolute;
   margin-top: 0.3rem;
   margin-left: 0.2rem;
-  font-size: 1rem;
+  font-size: 1.2em;
 }
 
 .title {
   color: white;
   height: 1rem;
   margin-right: 0.2rem;
+  font-size: 1.4em;
+  &-two {
+    font-size: 1.2em;
+  }
 }
 
 .viewStats {
@@ -34,6 +42,7 @@
   height: 1rem;
   margin-right: 0.2rem;
   cursor: pointer;
+  font-size: 1.2em;
 }
 
 .replaylist {
