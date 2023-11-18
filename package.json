@@ -17,9 +17,13 @@
     "@angular/forms": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@pkmn/data": "^0.7.56",
+    "@pkmn/dex": "^0.7.56",
+    "@pkmn/img": "^0.2.19",
     "chart.js": "^4.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "ui-scroll": "^0.0.2",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
