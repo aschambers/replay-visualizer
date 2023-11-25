@@ -120,25 +120,25 @@ export class ReplayService {
 
     if (winner === player1) {
       if (player1pokemon1 === player1lead1 || player1pokemon1 === player1lead2) {
-        return 'winnerselected';
+        return 'winnerselected imgbackground';
       } else if (player1pokemon1 !== player1lead1 && player1pokemon1 !== player1lead2 && player2pokemon1 === '') {
-        return 'winnerunselected';
+        return 'winnerunselected imgbackground';
       } else if (player2pokemon1 === player2lead1 || player2pokemon1 === player2lead2) {
-        return 'loserselected';
+        return 'loserselected imgbackground';
       } else if (player2pokemon1 !== player2lead1 && player2pokemon1 !== player2lead2 && player1pokemon1 === '') {
-        return 'loserunselected';
+        return 'loserunselected imgbackground';
       } else {
         return '';
       }
     } else if (winner === player2) {
       if (player2pokemon1 === player2lead1 || player2pokemon1 === player2lead2) {
-        return 'winnerselected';
+        return 'winnerselected imgbackground';
       } else if (player2pokemon1 !== player2lead1 && player2pokemon1 !== player2lead2 && player1pokemon1 === '') {
-        return 'winnerunselected';
+        return 'winnerunselected imgbackground';
       } else if (player1pokemon1 === player1lead1 || player1pokemon1 === player1lead2) {
-        return 'loserselected';
+        return 'loserselected imgbackground';
       } else if (player1pokemon1 !== player1lead1 && player1pokemon1 !== player1lead2) {
-        return 'loserunselected';
+        return 'loserunselected imgbackground';
       } else {
         return '';
       }

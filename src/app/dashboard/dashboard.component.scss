@@ -32,6 +32,7 @@
   height: 1rem;
   margin-right: 0.2rem;
   font-size: 1.4em;
+  margin-top: 0rem;
   &-two {
     font-size: 1.2em;
     color: white;
@@ -82,4 +83,33 @@
 .loserunselected {
   background-color: pink;
   border: 1px solid white;
+}
+
+.imgbackground {
+  height: 60px;
+  width: 60px;
+}
+
+@media (max-width: 460px) {
+  .imgbackground {
+    height: 50px;
+    width: 50px;
+  }
+
+  .title {
+    &-two {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .imgbackground {
+    height: 45px;
+    width: 45px;
+  }
+
+  .fileselect {
+    margin-top: 1.5rem;
+  }
 }

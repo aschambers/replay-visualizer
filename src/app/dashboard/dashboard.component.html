@@ -25,48 +25,36 @@
     <li *ngFor="let replay of filteredReplays; let index = index" ui-scroll="item in datasource" class="replay">
       <span class="replaytext">Player 1: {{ replay.player1 }} <br /> Rating: {{ replay.player1rating }}</span> <br />
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon1, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon1)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon2, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon2)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon3, replay.player1lead1, replay.player1lead2,
         '',replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon3)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon4, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon4)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon5, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon5)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon6, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
@@ -74,48 +62,36 @@
       >
       <br />
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon1, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon1)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon2, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon2)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon3, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon3)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon4, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon4)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon5, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon5)"
       >
       <img
-        height="60px"
-        width="60px"
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon6, replay.player2lead1, replay.player2lead2)"
