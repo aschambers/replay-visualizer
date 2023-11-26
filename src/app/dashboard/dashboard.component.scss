@@ -1,10 +1,6 @@
 .fileselect, .replaytext {
   color: white;
-  font-size: 0.8em;
-}
-
-.fileselect {
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .filterSelect, .searchType {
@@ -22,7 +18,7 @@
 
 .uarrow {
   position: absolute;
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
   margin-left: 0.2rem;
   font-size: 1em;
 }
@@ -31,10 +27,10 @@
   color: #fff;
   height: 1rem;
   margin-right: 0.2rem;
-  font-size: 1em;
+  font-size: 1.2em;
   margin-top: 0rem;
   &-two {
-    font-size: 0.7em;
+    font-size: 0.9em;
     color: white;
     height: 1rem;
   }
@@ -90,17 +86,15 @@
   width: 60px;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 440px) {
   .imgbackground {
     height: 50px;
     width: 50px;
   }
-}
 
-@media (max-width: 370px) {
   .title {
     &-two {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
     }
   }
 }
@@ -109,5 +103,9 @@
   .imgbackground {
     height: 45px;
     width: 45px;
+  }
+  
+  .fileselect {
+    margin-top: 1rem;
   }
 }
