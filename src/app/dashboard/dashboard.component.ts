@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Match } from './match.model';
 import { Player } from './player.model';
 import { ReplayService } from './replay.service';
@@ -19,8 +19,8 @@ export class DashboardComponent {
   playerList: Array<string> = [];
   playerRatingList: Array<Player> = [];
   ledPokemonList: Array<string> = [];
-  searchType: string = 'ledWith';
-  viewStats: boolean = false;
+  searchType = 'ledWith';
+  viewStats = false;
 
   constructor(private replayService: ReplayService) {}
 

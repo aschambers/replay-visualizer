@@ -22,7 +22,7 @@ export class ReplayService {
   findStringIndex = (str1: string, str2: string) => {
     const output = [];
     for (let i = 0; i < str1.length -1; i++) {
-      let arr = [];
+      const arr = [];
       for (let j = i; j < (i+str2.length) && i < str1.length; j++) {
         arr.push(str1[j]);
       }
@@ -89,8 +89,8 @@ export class ReplayService {
         this.pokemonListMap[allPokemonUsedInMatch[i]] += 1;
       }
     }
-    let sortable = [];
-    for (var pokemon in this.pokemonListMap) {
+    const sortable = [];
+    for (const pokemon in this.pokemonListMap) {
       sortable.push([pokemon, this.pokemonListMap[pokemon]]);
     }
 

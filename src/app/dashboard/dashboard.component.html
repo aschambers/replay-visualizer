@@ -15,7 +15,11 @@
       <app-search class="filterSearch" (filterReplays)="filterPokemonBrought($event)"></app-search><br />
     </div>
     <br />
-    <a class="viewStats" (click)="viewPokemonStats()">Replay Stats <span *ngIf="viewStats === false" class="darrow">&#8964;</span><span *ngIf="viewStats === true" class="uarrow">&#8963;</span></a>
+    <a class="viewStats" (click)="viewPokemonStats()" (keypress)="viewPokemonStats()" tabindex="-1">
+      Replay Stats
+      <span *ngIf="viewStats === false" class="darrow">&#8964;</span>
+      <span *ngIf="viewStats === true" class="uarrow">&#8963;</span>
+    </a>
     <div *ngIf="viewStats === true">
       <app-chart [sortedPokemon]="sortedPokemon"></app-chart>
     </div>
@@ -29,36 +33,42 @@
         replay.player1pokemon1, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon1)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon2, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon2)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon3, replay.player1lead1, replay.player1lead2,
         '',replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon3)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon4, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon4)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon5, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon5)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         replay.player1pokemon6, replay.player1lead1, replay.player1lead2,
         '', replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player1pokemon6)"
+        alt="pokemon sprite"
       >
       <br />
       <img
@@ -66,36 +76,42 @@
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon1, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon1)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon2, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon2)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon3, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon3)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon4, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon4)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon5, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon5)"
+        alt="pokemon sprite"
       >
       <img
         [ngClass]="getPokemonBackground(replay,
         '', replay.player1lead1, replay.player1lead2,
         replay.player2pokemon6, replay.player2lead1, replay.player2lead2)"
         [src]="getSprite(replay.player2pokemon6)"
+        alt="pokemon sprite"
       ><br />
       <span class="replaytext">Player 2: {{ replay.player2 }} <br /> Rating: {{replay.player2rating }}</span> <br /><br />
     </li>
