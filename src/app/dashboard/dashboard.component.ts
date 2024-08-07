@@ -234,7 +234,7 @@ export class DashboardComponent {
   filterPokemonLed = (searchValue: string) => {
     const replays = this.replays;
 
-    this.filteredReplays.length = 0; 
+    this.filteredReplays.length = 0;
     for (let i = 0; i < replays.length; i++) {
       if (replays[i].player1lead1.includes(searchValue) || replays[i].player1lead2.includes(searchValue)
       || replays[i].player2lead1.includes(searchValue) || replays[i].player2lead2.includes(searchValue)) {
